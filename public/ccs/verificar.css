@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+/* Establece estilos base para todos los elementos de la página */
+* {
+  margin: 0; /* Elimina el margen externo por defecto */
+  padding: 0; /* Elimina el relleno interno por defecto */
+  box-sizing: border-box; /* Incluye el padding y el borde en el tamaño total del elemento */
+  font-family: "Bebas Neue", sans-serif; /* Aplica la fuente Bebas Neue a todo */
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f4f3; /* Color de fondo claro */
+}
+
+.container {
+  width: 700px;
+  height: 500px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+.container-form {
+  width: 100%;
+  overflow: hidden;
+}
+
+.container-input {
+  display: flex;
+  gap: 10px; /* Espacio entre inputs */
+  margin-top: 75px; /* Espacio superior para centrar verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+}
+
+.container-input input {
+  border: 1px solid #c9ccc8;
+  border-radius: 8px;
+  padding: 10px;
+  width: 80px;
+  height: 80px;
+  background-color: #eeeeee;
+  font-size: 30px; /* Tamaño de fuente más grande */
+  text-align: center;
+  margin-top: -50px;
+}
+
+button{
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 50px;
+  font-size: 17px;
+  background-color: #297e6a; /* Color verde */
+  color: white; /* Texto blanco */
+  cursor: pointer; /* Cambia a mano al pasar el mouse */
+  margin-top: 50px;
+
+
+}
+
+.container-form form {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center; /* Centra verticalmente */
+  flex-direction: column; /* Apila los elementos verticalmente */
+}
+
+#email{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+button:hover {
+  background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
+}
+
+.container-form span {
+  font-size: 22px;
+  text-align: center;
+}
+
+footer{
+  position: absolute;
+  bottom: 0;
+  font-size: 20px;
+  color: black;
+}
