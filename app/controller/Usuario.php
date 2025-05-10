@@ -2,6 +2,7 @@
 
 header('Content-Type: application/json');
 require_once '../model/Usuario.php';
+require_once '../model/Verificacion.php';
 
 $usuario = new Usuario();
 
@@ -21,6 +22,20 @@ if (isset($_GET['op'])) {
             $usuario->setActivo(0); // Por defecto activo
 
             $res = $usuario->registrarUsuario();
+            echo json_encode($res);
+            break;
+        case 'Verificar':
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $codigo = str_pad(random_int(0, 999999), 6, '0', STR_PAD_LEFT);
+            $verificacion = new Verificacion();
+            $verificacion->setIdUsuario($_SESSION['usu_id']);
+            $verificacion->setCodigo($codigo);
+            $verificacion->setExpiracion("NOW() + INTERVAL 5 MINUTE");
+            $verificacion->setVerificado(0);
+            $verificacion->setFechaCreacion(date('Y-m-d H:i:s'));
+            $res = $verificacion->ingresarDatos();
             echo json_encode($res);
             break;
     }

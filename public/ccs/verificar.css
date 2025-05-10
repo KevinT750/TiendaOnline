@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 /* Establece estilos base para todos los elementos de la página */
 * {
   margin: 0; /* Elimina el margen externo por defecto */
@@ -32,6 +31,7 @@ body {
 .container-form {
   width: 100%;
   overflow: hidden;
+  background-clip: border-box;
 }
 
 .container-input {
@@ -42,7 +42,7 @@ body {
 }
 
 .container-input input {
-  border: 1px solid #c9ccc8;
+  border: 1px solid #4cccd0;
   border-radius: 8px;
   padding: 10px;
   width: 80px;
@@ -52,19 +52,27 @@ body {
   text-align: center;
   margin-top: -50px;
 }
+.container-button {
+  display: flex;
+  gap: 70px;
+  justify-items: center;
+}
 
-button{
+input:focus {
+  outline: none; /* Elimina el borde azul al hacer clic */
+  border: 3px solid #3b9bb6; /* Rojo fuerte */
+  box-shadow: 0 0 5px #2b768b; /* Cambia el color de fondo al hacer foco */
+}
+button {
   border: none;
   border-radius: 10px;
   width: 100px;
   height: 50px;
   font-size: 17px;
-  background-color: #297e6a; /* Color verde */
-  color: white; /* Texto blanco */
-  cursor: pointer; /* Cambia a mano al pasar el mouse */
-  margin-top: 50px;
-
-
+  background-color: #4cccd0;
+  color: white;
+  cursor: pointer;
+  margin-top: 25px;
 }
 
 .container-form form {
@@ -75,13 +83,14 @@ button{
   flex-direction: column; /* Apila los elementos verticalmente */
 }
 
-#email{
+#email {
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
 button:hover {
-  background-color: #45a049; /* Color verde más oscuro al pasar el mouse */
+  background-color: #3b9bb6;
+  transition: 0.9s ease-in-out; /* Transición suave al cambiar el color */
 }
 
 .container-form span {
@@ -89,7 +98,7 @@ button:hover {
   text-align: center;
 }
 
-footer{
+footer {
   position: absolute;
   bottom: 0;
   font-size: 20px;

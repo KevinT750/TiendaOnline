@@ -29,6 +29,12 @@ function registrarUsuario() {
           text: "Cuenta Creada Correctamente",
           icon: "success",
           confirmButtonText: "Aceptar",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            // Redirige a otra página (por ejemplo, a login.html)
+            ingresarVerificacion();
+           // window.location.href = "verificar.html";
+          }
         });
       } else {
         Swal.fire({
@@ -48,6 +54,19 @@ function registrarUsuario() {
         confirmButtonText: "Aceptar",
       });
     },
+  });
+}
+
+function ingresarVerificacion() {
+  $.ajax({
+    url: "../../app/controller/Usuario.php?op=Verificar",
+    method: 'GET',
+    success: function(response) {
+        console.log('Acción Creada: ', "Creado con éxito");
+    },
+    error: function(xhr, status, error) {
+        console.error('Error al ejecutar la acción:', error);
+    }
   });
 }
 

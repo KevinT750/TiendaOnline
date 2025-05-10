@@ -1,5 +1,6 @@
 <?php
 require_once "../../config/Conexion.php";
+
 class Usuario
 {
     private $id;
@@ -133,8 +134,8 @@ class Usuario
     );";
 
         $resultado = ejecutarConsulta($sql);
-
-        if($resultado && $resultado->num_rows > 0) {
+        $verificacion = new Verificacion();
+        if ($resultado && $resultado->num_rows > 0) {
             $row = $resultado->fetch_assoc();
             $_SESSION['usu_id'] = $row['id'];
             return [
@@ -142,6 +143,6 @@ class Usuario
                 "mensaje" => "Usuario registrado correctamente",
                 "id" => $row['id']
             ];
-        } 
+        }
     }
 }

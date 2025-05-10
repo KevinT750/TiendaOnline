@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -16,19 +16,30 @@
                 <label for="code1" style="display: none;">Código de verificación</label>
                 <span>Ingrese el código de verificación que se le envió a su correo electrónico.</span>
                 <div class="container-input">
-                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code1">
-                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code2">
-                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code3">
-                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code4">
-                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code5">
-                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code6">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code1"
+                        oninput="moverSiguiente(this, 'code2', null)">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code2"
+                        oninput="moverSiguiente(this, 'code3', 'code1')">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code3"
+                        oninput="moverSiguiente(this, 'code4', 'code2')">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code4"
+                        oninput="moverSiguiente(this, 'code5', 'code3')">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code5"
+                        oninput="moverSiguiente(this, 'code6', 'code4')">
+                    <input type="text" maxlength="1" pattern="\d*" inputmode="numeric" required id="code6" 
+                        oninput="moverSiguiente(this, null, 'code5')">
                 </div>
-                <button type="submit">Verificar</button>
+                <div class="container-button">
+                    <button type="submit" id="btn-verify">Verificar</button>
+                    <button type="button" id="resend-code">Reenviar código</button>
+                </div>
             </form>
         </div>
     </div>
+    <footer>
+        <p>&copy; 2023 Biblioteca. Todos los derechos reservados.</p>
+    </footer>
+    <script src="script/verificar.js"></script>
 </body>
-<footer>
-    <p>&copy; 2023 Biblioteca. Todos los derechos reservados.</p>
-</footer>
+
 </html>
