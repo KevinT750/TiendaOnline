@@ -120,6 +120,7 @@ class Usuario
         $password = $this->getPassword();
         $fecha = $this->getFechaRegistro();
         $activo = $this->getActivo();
+        $_SESSION['usu_nombre'] = $nombre; 
 
         $sql = "CALL sp_usuario(
         $op,
@@ -142,6 +143,32 @@ class Usuario
                 "estado" => true,
                 "mensaje" => "Usuario registrado correctamente",
                 "id" => $row['id']
+            ];
+        }
+    }
+
+    public function obtenerEmail()
+    {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $op = 2;
+        $id = $this->getId();
+        $sql = "call tienda_online.sp_usuario($op, $id, 0, 0, null, null, null, null, null)";
+        $resultado = ejecutarConsulta($sql);
+        if ($resultado && $resultado->num_rows > 0) {
+            $row = $resultado->fetch_assoc();
+            $_SESSION['usu_email'] = $row['email'];
+            return [
+                "estado" => true,
+                "mensaje" => "Email obtenido correctamente",
+                "email" => $row['email']
+            ];
+        } else {
+            return [
+                "estado" => false,
+                "mensaje" => "No se encontró el email"
             ];
         }
     }

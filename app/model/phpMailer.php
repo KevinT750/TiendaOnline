@@ -3,9 +3,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Asegúrate de incluir las clases necesarias de PHPMailer
-require_once '../Mailer/PHPMailer/PHPMailer.php';
-require_once '../Mailer/PHPMailer/Exception.php';
-require_once '../Mailer/PHPMailer/SMTP.php';
+require_once '../../Mailer/PHPMailer/PHPMailer.php';
+require_once '../../Mailer/PHPMailer/Exception.php';
+require_once '../../Mailer/PHPMailer/SMTP.php';
 
 class EmailSender {
     private $mailer;

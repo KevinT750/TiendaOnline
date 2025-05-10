@@ -32,8 +32,10 @@ function registrarUsuario() {
         }).then((result) => {
           if (result.isConfirmed) {
             // Redirige a otra página (por ejemplo, a login.html)
+            obtenerEmail();
             ingresarVerificacion();
-           // window.location.href = "verificar.html";
+            enviarEmail();
+            // window.location.href = "verificar.html";
           }
         });
       } else {
@@ -60,16 +62,41 @@ function registrarUsuario() {
 function ingresarVerificacion() {
   $.ajax({
     url: "../../app/controller/Usuario.php?op=Verificar",
-    method: 'GET',
-    success: function(response) {
-        console.log('Acción Creada: ', "Creado con éxito");
+    method: "GET",
+    success: function (response) {
+      console.log("Acción Creada: ", "Creado con éxito");
     },
-    error: function(xhr, status, error) {
-        console.error('Error al ejecutar la acción:', error);
-    }
+    error: function (xhr, status, error) {
+      console.error("Error al ejecutar la acción:", error);
+    },
   });
 }
 
+function obtenerEmail() {
+  $.ajax({
+    url: "../../app/controller/Usuario.php?op=obtenerCorreo",
+    method: "GET",
+    success: function (response) {
+      console.log("Acción Creada: ", "obtenido con éxito");
+    },
+    error: function (xhr, status, error) {
+      console.error("Error al ejecutar la acción:", error);
+    },
+  });
+}
+
+function enviarEmail() {
+  $.ajax({
+    url: "../../app/controller/phpMailer.php?op=enviarCorreo",
+    method: "GET",
+    success: function (response) {
+      console.log("Acción Creada: ", "enviado con éxito");
+    },
+    error: function (xhr, status, error) {
+      console.error("Error al ejecutar la acción:", error);
+    },
+  });
+}
 document
   .getElementById("formRegistro")
   .addEventListener("submit", function (event) {

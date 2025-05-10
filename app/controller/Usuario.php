@@ -38,5 +38,15 @@ if (isset($_GET['op'])) {
             $res = $verificacion->ingresarDatos();
             echo json_encode($res);
             break;
+
+        case 'obtenerCorreo':
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
+            $usuario->setId($_SESSION['usu_id']);
+            $res = $usuario->obtenerEmail();
+
+            echo json_encode($res);
+            break;
     }
 }
